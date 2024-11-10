@@ -36,7 +36,7 @@ function App() {
         marginTop="75px"
         marginRight={"auto"}
         padding={{ md: "10%", base: "max(10%, 32px)" }}
-        paddingRight={{ md: "15%" }}
+        paddingRight={{ xl: "15%" }}
         width="100%"
       >
         <Flex flexDir="row" flex={1} gap="32px">

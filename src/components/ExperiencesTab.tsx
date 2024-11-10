@@ -65,7 +65,7 @@ const ExperiencesTab = () => {
                   right="100%"
                   top={"28px"}
                   transform="translateX(-20px)"
-                  whiteSpace={{ base: "wrap", md: "nowrap" }}
+                  whiteSpace={{ base: "wrap", lg: "nowrap" }}
                   color="gray.200"
                 >
                   {experience.time}
