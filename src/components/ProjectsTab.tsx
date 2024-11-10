@@ -1,50 +1,36 @@
-import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, IconButton } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
-import projectData from "../content/projects/projects.json";
-import matter from "gray-matter";
-import { useEffect, useState } from "react";
+import projectData from "../content/projects.json";
+import { FaGithub } from "react-icons/fa6";
+import { ACCENT_COLOR } from "../config";
 
 interface Project {
   title: string;
   description: string;
+  link: string;
 }
 
 const ProjectsTab = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const projectLoaded = await Promise.all(
-        projectData.projects.map(async (projectFileName) => {
-          const fileData = await import(
-            `../content/projects/${projectFileName}.mdx`
-          );
-          console.log(fileData);
-          const parsedData = matter(fileData);
-          return {
-            title: parsedData.data.title as string,
-            description: parsedData.content as string,
-          };
-        })
-      );
-      console.log(projectLoaded);
-      setProjects(projectLoaded);
-    })();
-  }, []);
-
   return (
     <div>
       <Grid
-        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
         gap="16px"
       >
-        {projects.map((project) => {
+        {projectData.projects.map((project: Project) => {
           return (
             <GridItem>
-              <Card.Root backgroundColor="gray.700" border="none">
+              <Card.Root backgroundColor="gray.700" border="none" height='100%'>
                 <Card.Body gap="2">
-                  <Card.Title color="gray.200">{project.title}</Card.Title>
-                  <Card.Description color="gray.400">
+                  <Flex alignItems='center'>
+                    <Card.Title color="gray.200" fontSize={{ base: '2xl' }} width='100%' >
+                      {project.title}
+                    </Card.Title>
+                    <IconButton as={'a'} href={project.link} target={'_blank'} marginLeft='auto' variant='ghost' color='gray.300' _hover={{backgroundColor: 'transparent', color: ACCENT_COLOR}}>
+                      <FaGithub />
+                    </IconButton>
+                  </Flex>
+                  <Card.Description color="gray.400" fontSize={{ base: 'md', lg: 'lg' }}  >
                     {project.description}
                   </Card.Description>
                 </Card.Body>

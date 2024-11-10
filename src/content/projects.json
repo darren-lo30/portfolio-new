@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "title": "Ray Tracer",
+      "link": "https://github.com/darren-lo30/raytracer",
+      "description": "A CUDA accelerated ray tracer made with C++ and CMake"
+    },
+    {
+      "title": "Fridge",
+      "link": "https://github.com/darren-lo30/fridge",
+      "description": "A virtual fridge that recommends recipes based on the ingredients in your pantry"
+    },
+    {
+      "title": "NeRF Minecraft",
+      "link": "https://github.com/darren-lo30/nerf-minecraft",
+      "description": "A Neural Radiance Field model that generates Minecraft structures from 2D images"
+    },
+    {
+      "title": "1984",
+      "link": "https://github.com/darren-lo30/1984",
+      "description": "A Google Meet bot that uses machine learning to gauge the attention of participants"
+    },
+    {
+      "title": "Duberant",
+      "link": "https://github.com/darren-lo30/duberant",
+      "description": "An FPS tactical shooter made with LWJGL, a Java wrapper for OpenGL"
+    },
+    {
+      "title": "ECS Game Engine",
+      "link": "https://github.com/darren-lo30/ecs",
+      "description": "A game engine with physics that is based on an Entity Component System"
+    }
+  ]
+}

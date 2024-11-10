@@ -3,7 +3,6 @@ import {
   Flex,
   Link,
   Box,
-  LinkProps,
   Show,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -12,28 +11,9 @@ import AboutTab from "./components/AboutTab";
 import ProjectsTab from "./components/ProjectsTab";
 import { motion } from "framer-motion";
 import { div } from "framer-motion/client";
+import { ACCENT_COLOR } from "./config";
+import ExperiencesTab from "./components/ExperiencesTab";
 
-const ACCENT_COLOR = "#84dfe2";
-
-interface NavItemProps extends LinkProps {
-  label: string;
-}
-
-const NavItem = (props: NavItemProps) => {
-  return (
-    <Link
-      fontSize={{ base: "md", lg: "lg" }}
-      color={"gray.300"}
-      fontWeight="bold"
-      _hover={{
-        color: ACCENT_COLOR,
-      }}
-      {...props}
-    >
-      {props.label}
-    </Link>
-  );
-};
 
 type Tab = "About" | "Experience" | "Projects";
 const MotionBox = motion.create(div);
@@ -44,7 +24,9 @@ const variants = {
 };
 function App() {
   const [tab, setTab] = useState<Tab>("About");
-  const showNavSide = useBreakpointValue({ base: false, sm: true });
+  const showNavSide = true;
+
+  const tabs: Tab[] = ['About', 'Experience', 'Projects'];
 
   return (
     <Stack
@@ -61,7 +43,7 @@ function App() {
         flex={1}
         marginTop="75px"
         marginRight={"auto"}
-        padding={{ md: "10%", base: "32px" }}
+        padding={{ md: "10%", base: "max(10%, 32px)" }}
         paddingRight={{ md: "15%" }}
         width="100%"
       >
@@ -77,6 +59,7 @@ function App() {
             >
               {tab === "About" && <AboutTab />}
               {tab === "Projects" && <ProjectsTab />}
+              {tab === 'Experience' && <ExperiencesTab />}
             </MotionBox>
           </Flex>
           <Show when={showNavSide}>
@@ -92,27 +75,19 @@ function App() {
                 paddingBottom="32px"
                 position="absolute"
               >
-                <NavItem
-                  label="About"
-                  onClick={() => {
-                    setTab("About");
+                {tabs.map(tabName => (
+                  <Link
+                  fontSize={{ base: "md", lg: "lg" }}
+                  color={tab === tabName ? ACCENT_COLOR : "gray.300"}
+                  fontWeight="bold"
+                  _hover={{
+                    color: ACCENT_COLOR,
                   }}
-                  marginLeft="auto"
-                />
-                <NavItem
-                  label="Experience"
-                  onClick={() => {
-                    setTab("Experience");
-                  }}
-                  marginLeft="auto"
-                />
-                <NavItem
-                  label="Projects"
-                  onClick={() => {
-                    setTab("Projects");
-                  }}
-                  marginLeft="auto"
-                />
+                  onClick={() => {setTab(tabName)}}
+                >
+                  {tabName}
+                </Link>
+                ))}
               </Flex>
             </Box>
           </Show>
