@@ -36,6 +36,7 @@ const ProjectsTab = () => {
                     </Card.Title>
                     <IconButton
                       as={"a"}
+                      //@ts-expect-error href is valid
                       href={project.link}
                       target={"_blank"}
                       marginLeft="auto"
