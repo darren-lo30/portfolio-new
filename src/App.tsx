@@ -1,10 +1,4 @@
-import {
-  Stack,
-  Flex,
-  Link,
-  Box,
-  Show,
-} from "@chakra-ui/react";
+import { Stack, Flex, Link, Box, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import AboutTab from "./components/AboutTab";
 import ProjectsTab from "./components/ProjectsTab";
@@ -12,7 +6,6 @@ import { motion } from "framer-motion";
 import { div } from "framer-motion/client";
 import { ACCENT_COLOR } from "./config";
 import ExperiencesTab from "./components/ExperiencesTab";
-
 
 type Tab = "About" | "Experience" | "Projects";
 const MotionBox = motion.create(div);
@@ -25,7 +18,7 @@ function App() {
   const [tab, setTab] = useState<Tab>("About");
   const showNavSide = true;
 
-  const tabs: Tab[] = ['About', 'Experience', 'Projects'];
+  const tabs: Tab[] = ["About", "Experience", "Projects"];
 
   return (
     <Stack
@@ -58,7 +51,7 @@ function App() {
             >
               {tab === "About" && <AboutTab />}
               {tab === "Projects" && <ProjectsTab />}
-              {tab === 'Experience' && <ExperiencesTab />}
+              {tab === "Experience" && <ExperiencesTab />}
             </MotionBox>
           </Flex>
           <Show when={showNavSide}>
@@ -74,18 +67,20 @@ function App() {
                 paddingBottom="32px"
                 position="absolute"
               >
-                {tabs.map(tabName => (
+                {tabs.map((tabName) => (
                   <Link
-                  fontSize={{ base: "md", lg: "lg" }}
-                  color={tab === tabName ? ACCENT_COLOR : "gray.300"}
-                  fontWeight="bold"
-                  _hover={{
-                    color: ACCENT_COLOR,
-                  }}
-                  onClick={() => {setTab(tabName)}}
-                >
-                  {tabName}
-                </Link>
+                    fontSize={{ base: "md", lg: "lg" }}
+                    color={tab === tabName ? ACCENT_COLOR : "gray.300"}
+                    fontWeight="bold"
+                    _hover={{
+                      color: ACCENT_COLOR,
+                    }}
+                    onClick={() => {
+                      setTab(tabName);
+                    }}
+                  >
+                    {tabName}
+                  </Link>
                 ))}
               </Flex>
             </Box>
