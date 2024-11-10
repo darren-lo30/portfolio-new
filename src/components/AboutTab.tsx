@@ -1,5 +1,5 @@
 import { ACCENT_COLOR } from '../config';
-import { Stack, Flex, Heading, Text, IconButton, chakra, Link, Box, LinkProps } from '@chakra-ui/react'
+import { Stack, Flex, Heading, Text, IconButton, chakra, Link } from '@chakra-ui/react'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa6'
 
 

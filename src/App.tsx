@@ -4,7 +4,6 @@ import {
   Link,
   Box,
   Show,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import AboutTab from "./components/AboutTab";
