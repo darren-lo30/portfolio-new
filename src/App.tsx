@@ -145,8 +145,8 @@ function App() {
     >
       {showMobileNav && (
         <Box
-          aria-label="Open menu"
           position="fixed"
+          style={{ zIndex: 2 }}
           top="16px"
           right="16px"
           onClick={() => {
