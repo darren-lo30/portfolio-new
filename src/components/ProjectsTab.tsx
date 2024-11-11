@@ -19,13 +19,22 @@ const ProjectsTab = () => {
           md: "repeat(2, 1fr)",
           lg: "repeat(3, 1fr)",
         }}
-        gap="16px"
+        gap={{ base: "16px", md: "32px" }}
       >
         {projectData.projects.map((project: Project) => {
           return (
             <GridItem>
-              <Card.Root backgroundColor="gray.700" border="none" height="100%">
-                <Card.Body gap="2">
+              <Card.Root
+                backgroundColor="transparent"
+                border="none"
+                height="100%"
+                borderLeftColor="gray.400"
+                borderLeftWidth={"3px"}
+                borderLeftStyle={"solid"}
+                // borderLeft={{ base: "none", md: `4px solid` }}
+                borderRadius={0}
+              >
+                <Card.Body gap={2} paddingY={"8px"}>
                   <Flex alignItems="center">
                     <Card.Title
                       color="gray.200"

@@ -66,7 +66,9 @@ function App() {
               right={{ base: 0 }}
               paddingRight="16px"
               gap="12px"
-              borderRight="2px gray solid"
+              borderRightStyle="solid"
+              borderRightColor="gray.400"
+              borderRightWidth={"3px"}
               maxHeight={"fit-content"}
               paddingBottom="32px"
               position="absolute"
@@ -80,6 +82,7 @@ function App() {
                   _hover={{
                     color: ACCENT_COLOR,
                   }}
+                  marginLeft={"auto"}
                   onClick={() => {
                     setTab(tabName);
                   }}

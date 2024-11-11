@@ -11,7 +11,7 @@ interface Experience {
 
 const ExperiencesTab = () => {
   return (
-    <Flex marginTop="-50px">
+    <Flex marginTop={{ base: 0, md: "-50px" }}>
       <Flex
         gap="0px"
         flexDir="column"
