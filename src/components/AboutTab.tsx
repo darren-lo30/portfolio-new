@@ -46,19 +46,21 @@ const AboutTab = () => {
       <Heading fontSize={{ base: "5xl" }} lineHeight={"3rem"}>
         Darren Lo
       </Heading>
-      <Stack gap={'16px'}>
+      <Stack gap={"16px"}>
         <Text fontSize={{ base: "lg", lg: "xl" }} color={"gray.400"}>
           Hi, I'm a 3rd year computer science student studying at the{" "}
-          <LinkItem label="University of Waterloo" link="https://uwaterloo.ca/" />
+          <LinkItem
+            label="University of Waterloo"
+            link="https://uwaterloo.ca/"
+          />
           .
         </Text>
         <Text fontSize={{ base: "lg", lg: "xl" }} color={"gray.400"}>
-          I'm currently a Software Engineer Intern at a Stealth Startup based in
-          Toronto and a Machine Learning Researcher at the University of Waterloo
-          where I work with diffusion models.
+          I'm currently a Machine Learning Researcher at the University of
+          Waterloo where I work with diffusion models.
         </Text>
         <Text fontSize={{ base: "lg", lg: "xl" }} color={"gray.400"}>
-          I've previously interned at{" "}
+          I've previously worked at a Stealth Startup,{" "}
           <LinkItem link="https://www.huawei.com/en/" label="Huawei" /> and{" "}
           <LinkItem link="https://toolbx.com/" label="TOOLBX" /> as a Software
           Engineer Intern.
