@@ -56,8 +56,10 @@ const AboutTab = () => {
           .
         </Text>
         <Text fontSize={{ base: "lg", lg: "xl" }} color={"gray.400"}>
-          I'm currently a Machine Learning Researcher at the University of
-          Waterloo where I work with diffusion models.
+          I'm currently a Machine Learning Engineer Intern at{" "}
+          <LinkItem link="https://groq.com/" label="Groq" /> and a Machine
+          Learning Researcher at the University of Waterloo where I work with
+          diffusion models.
         </Text>
         <Text fontSize={{ base: "lg", lg: "xl" }} color={"gray.400"}>
           I've previously worked at a Stealth Startup,{" "}
