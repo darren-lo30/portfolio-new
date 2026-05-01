@@ -13,9 +13,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { div } from "framer-motion/client";
 import { ACCENT_COLOR } from "./config";
 import ExperiencesTab from "./components/ExperiencesTab";
+import PublicationsTab from "./components/PublicationsTab";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
-type Tab = "About" | "Experience" | "Projects";
+type Tab = "About" | "Experience" | "Publications";
 const MotionBox = motion.create(div);
 const MotionFlex = motion.create(Flex);
 const variants = {
@@ -30,7 +31,7 @@ function App() {
   const showMobileNav = useBreakpointValue({ base: true, sm: false });
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const tabs: Tab[] = ["About", "Experience", "Projects"];
+  const tabs: Tab[] = ["About", "Experience", "Publications"];
 
   const renderMain = () => (
     <Flex
@@ -56,6 +57,7 @@ function App() {
             {tab === "About" && <AboutTab />}
             {tab === "Projects" && <ProjectsTab />}
             {tab === "Experience" && <ExperiencesTab />}
+            {tab === "Publications" && <PublicationsTab />}
           </MotionBox>
         </Flex>
         <Show when={showNavSide}>
@@ -79,13 +81,9 @@ function App() {
                   fontSize={{ base: "md", lg: "lg" }}
                   color={tab === tabName ? ACCENT_COLOR : "gray.300"}
                   fontWeight="bold"
-                  _hover={{
-                    color: ACCENT_COLOR,
-                  }}
+                  _hover={{ color: ACCENT_COLOR }}
                   marginLeft={"auto"}
-                  onClick={() => {
-                    setTab(tabName);
-                  }}
+                  onClick={() => setTab(tabName)}
                 >
                   {tabName}
                 </Link>
@@ -119,9 +117,7 @@ function App() {
           fontSize={"xl"}
           color={tab === tabName ? ACCENT_COLOR : "gray.300"}
           fontWeight="bold"
-          _hover={{
-            color: ACCENT_COLOR,
-          }}
+          _hover={{ color: ACCENT_COLOR }}
           onClick={() => {
             setTab(tabName);
             setIsNavOpen(false);
@@ -132,14 +128,14 @@ function App() {
       ))}
     </MotionFlex>
   );
+
   return (
     <Stack
       minH={"100vh"}
       minW={"100vw"}
       direction={{ base: "column", md: "row" }}
       gap={4}
-      borderBottom={"0.5rem solid #84dfe2"}
-      backgroundColor={"#242424"}
+      backgroundColor={"#151515"}
       color="white"
       paddingBottom={"32px"}
     >
@@ -149,9 +145,7 @@ function App() {
           style={{ zIndex: 2 }}
           top="16px"
           right="16px"
-          onClick={() => {
-            setIsNavOpen(!isNavOpen);
-          }}
+          onClick={() => setIsNavOpen(!isNavOpen)}
           backgroundColor="transparent"
           color="gray.200"
           w={"fit-content"}
@@ -183,7 +177,7 @@ function App() {
                 <FaBars size="2em" />
               </MotionBox>
             )}
-          </AnimatePresence>{" "}
+          </AnimatePresence>
         </Box>
       )}
       {isNavOpen ? renderMobileNav() : renderMain()}

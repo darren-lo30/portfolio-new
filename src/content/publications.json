@@ -1,0 +1,37 @@
+{
+  "publications": [
+    {
+      "title": "SFBD-OMNI: Bridge Models for Lossy Measurement Restoration with Limited Clean Samples",
+      "authors": ["H. Lu", "Y. Yu", "Darren Lo"],
+      "venue": "ICLR 2026",
+      "year": 2026,
+      "paperUrl": "https://arxiv.org/abs/2512.17051",
+      "highlight": false
+    },
+    {
+      "title": "SFBD Flow: A Continuous-Optimization Framework for Training Diffusion Models with Noisy Samples",
+      "authors": ["H. Lu", "Darren Lo", "Y. Yu"],
+      "venue": "AISTATS 2026",
+      "year": 2026,
+      "paperUrl": "https://arxiv.org/abs/2506.02371",
+      "highlight": false
+    },
+    {
+      "title": "Composite Classifier-Free Guidance for Multi-Modal Conditioning in Wind Dynamics Super-Resolution",
+      "authors": [
+        "J. Schnell",
+        "A. Makkar",
+        "G. Gani",
+        "A. S. Ashok",
+        "Darren Lo",
+        "M. Optis",
+        "A. Wong",
+        "Y. Chen"
+      ],
+      "venue": "arXiv preprint",
+      "year": 2025,
+      "paperUrl": "https://arxiv.org/abs/2512.13729",
+      "highlight": false
+    }
+  ]
+}

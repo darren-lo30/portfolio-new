@@ -3,7 +3,7 @@
     {
       "title": "Ray Tracer",
       "link": "https://github.com/darren-lo30/raytracer",
-      "description": "A CUDA accelerated ray tracer made with C++ and CMake"
+      "description": "A CUDA-accelerated ray tracer made with C++ and CMake"
     },
     {
       "title": "Fridge",

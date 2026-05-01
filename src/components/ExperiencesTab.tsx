@@ -1,81 +1,119 @@
-import { Box, Flex } from "@chakra-ui/react";
-import { Card } from "@chakra-ui/react";
+import { Flex, Text, Box, Stack } from "@chakra-ui/react";
 import experiencesData from "../content/experiences.json";
+import { ACCENT_COLOR } from "../config";
 
 interface Experience {
   jobTitle: string;
   company: string;
+  companyUrl?: string;
   description: string;
   time: string;
+  location?: string;
+  skills?: string[];
 }
 
-const ExperiencesTab = () => {
-  return (
-    <Flex marginTop={{ base: 0, md: "-50px" }}>
-      <Flex
-        gap="0px"
-        flexDir="column"
-        width="80%"
-        borderLeft="white 2px solid"
-        marginLeft={{ base: "80px", lg: "min(20%, 200px)" }}
-      >
-        {experiencesData.experiences.map(
-          (experience: Experience, index: number) => {
-            return (
-              <Box
-                key={index}
-                position={"relative"}
-                _before={{
-                  content: '""',
-                  position: "absolute",
-                  left: "-1px",
-                  top: "35px",
-                  width: "10px",
-                  height: "10px",
-                  backgroundColor: "white",
-                  borderRadius: "50%",
-                  transform: "translateX(-50%)",
-                }}
+const ExperienceRow = ({ exp }: { exp: Experience }) => (
+  <Box
+    borderTop="1px solid"
+    borderColor="whiteAlpha.100"
+    py={5}
+    _last={{ borderBottom: "1px solid", borderBottomColor: "whiteAlpha.100" }}
+  >
+    <Flex gap={{ base: 0, md: 6 }} flexDir={{ base: "column", md: "row" }}>
+      {/* Left: date */}
+      <Box minW={{ md: "160px" }} mb={{ base: 2, md: 0 }} flexShrink={0}>
+        <Text
+          fontFamily="mono"
+          fontSize="xs"
+          color="gray.500"
+          letterSpacing="wide"
+        >
+          {exp.time}
+        </Text>
+      </Box>
+
+      {/* Right: content */}
+      <Stack gap={2} flex={1}>
+        <Flex align="baseline" gap={2} flexWrap="wrap">
+          <Text
+            fontSize={{ base: "lg", md: "xl" }}
+            fontWeight="semibold"
+            color="gray.100"
+            letterSpacing="-0.01em"
+            lineHeight="1.3"
+          >
+            {exp.jobTitle}
+          </Text>
+          <Text color="gray.500" fontSize="md">
+            @
+          </Text>
+          <Text
+            fontSize={{ base: "lg", md: "xl" }}
+            color={ACCENT_COLOR}
+            letterSpacing="-0.01em"
+            lineHeight="1.3"
+          >
+            {exp.company}
+          </Text>
+          {exp.location && (
+            <Text fontFamily="mono" fontSize="xs" color="gray.600" ml={1}>
+              · {exp.location}
+            </Text>
+          )}
+        </Flex>
+
+        <Text
+          fontSize={{ base: "sm", md: "md" }}
+          color="gray.400"
+          lineHeight="1.7"
+        >
+          {exp.description}
+        </Text>
+
+        {exp.skills && exp.skills.length > 0 && (
+          <Flex gap={2} flexWrap="wrap" mt={1}>
+            {exp.skills.map((skill) => (
+              <Text
+                key={skill}
+                fontFamily="mono"
+                fontSize="2xs"
+                color="gray.500"
+                px={1.5}
+                py={0.5}
+                border="1px solid"
+                borderColor="whiteAlpha.150"
+                borderRadius="sm"
+                letterSpacing="wide"
               >
-                <Card.Root
-                  backgroundColor="transparent"
-                  border="none"
-                  height="100%"
-                >
-                  <Card.Body gap="2">
-                    <Flex alignItems="center">
-                      <Card.Title
-                        color="gray.200"
-                        fontSize={{ base: "2xl" }}
-                        width="100%"
-                      >
-                        {experience.jobTitle} @ {experience.company}
-                      </Card.Title>
-                    </Flex>
-                    <Card.Description
-                      color="gray.400"
-                      fontSize={{ base: "md", lg: "lg" }}
-                    >
-                      {experience.description}
-                    </Card.Description>
-                  </Card.Body>
-                </Card.Root>
-                <Flex
-                  position="absolute"
-                  right="100%"
-                  top={"28px"}
-                  transform="translateX(-20px)"
-                  whiteSpace={{ base: "wrap", lg: "nowrap" }}
-                  color="gray.200"
-                >
-                  {experience.time}
-                </Flex>
-              </Box>
-            );
-          }
+                {skill}
+              </Text>
+            ))}
+          </Flex>
         )}
-      </Flex>
+      </Stack>
     </Flex>
-  );
-};
+  </Box>
+);
+
+const ExperiencesTab = () => (
+  <Stack w="full" maxW="3xl" gap={0} marginTop={{ base: 0, md: "-50px" }}>
+    <Flex align="center" gap={4} mb={4}>
+      <Text
+        fontSize="xs"
+        fontFamily="mono"
+        color="gray.500"
+        letterSpacing="wide"
+        textTransform="uppercase"
+      >
+        Experience
+      </Text>
+      <Box flex={1} h="1px" backgroundColor="whiteAlpha.100" />
+    </Flex>
+
+    {experiencesData.experiences.map((exp: Experience, i: number) => (
+      <ExperienceRow key={i} exp={exp} />
+    ))}
+  </Stack>
+);
+
 export default ExperiencesTab;
