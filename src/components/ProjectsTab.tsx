@@ -1,4 +1,4 @@
-import { Flex, Text, Box, Stack, IconButton } from "@chakra-ui/react";
+import { Flex, Text, Box, Stack, Link } from "@chakra-ui/react";
 import projectData from "../content/projects.json";
 import { FaGithub, FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { ACCENT_COLOR } from "../config";
@@ -36,12 +36,11 @@ const ProjectRow = ({ project }: { project: Project }) => (
         </Text>
         <Flex gap={1} flexShrink={0}>
           {project.paperLink && (
-            <IconButton
-              as="a"
+            <Link
               href={project.paperLink}
               target="_blank"
-              size="xs"
-              variant="ghost"
+              display="inline-flex"
+              alignItems="center"
               color="gray.500"
               title="Read paper"
               _hover={{
@@ -50,20 +49,19 @@ const ProjectRow = ({ project }: { project: Project }) => (
               }}
             >
               <FaArrowUpRightFromSquare size="0.75em" />
-            </IconButton>
+            </Link>
           )}
-          <IconButton
-            as="a"
+          <Link
             href={project.link}
             target="_blank"
-            size="xs"
-            variant="ghost"
+            display="inline-flex"
+            alignItems="center"
             color="gray.500"
             title="GitHub"
             _hover={{ backgroundColor: "transparent", color: ACCENT_COLOR }}
           >
             <FaGithub size="1em" />
-          </IconButton>
+          </Link>
         </Flex>
       </Flex>
 

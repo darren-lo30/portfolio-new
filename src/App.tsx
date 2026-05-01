@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import AboutTab from "./components/AboutTab";
-import ProjectsTab from "./components/ProjectsTab";
 import { AnimatePresence, motion } from "framer-motion";
 import { div } from "framer-motion/client";
 import { ACCENT_COLOR } from "./config";
@@ -55,7 +54,6 @@ function App() {
             transition={{ duration: 0.25 }}
           >
             {tab === "About" && <AboutTab />}
-            {tab === "Projects" && <ProjectsTab />}
             {tab === "Experience" && <ExperiencesTab />}
             {tab === "Publications" && <PublicationsTab />}
           </MotionBox>
