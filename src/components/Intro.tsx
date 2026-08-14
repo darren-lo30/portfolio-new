@@ -70,7 +70,7 @@ const Intro = () => (
         generative video models for autonomous driving, and a Machine Learning
         Researcher at the University of Waterloo exploring diffusion models. I
         was previously at <InlineLink link="https://groq.com" label="Groq" />{" "}
-        where I model inference.
+        where I worked on model inference.
       </Text>
       <Text fontSize="md" color="gray.400" lineHeight="1.75">
         My research interests lie in generative modeling, with a focus on video
