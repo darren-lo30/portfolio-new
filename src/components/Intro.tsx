@@ -65,12 +65,14 @@ const Intro = () => (
         .
       </Text>
       <Text fontSize="md" color="gray.400" lineHeight="1.75">
-        I'm currently a Research Intern at{" "}
-        <InlineLink link="https://waabi.ai/" label="Waabi" />, working on
-        generative video models for autonomous driving, and an undergraduate
-        researcher at the University of Waterloo exploring diffusion models. I
-        was previously at <InlineLink link="https://groq.com" label="Groq" />{" "}
-        where I worked on model inference.
+        I'm currently a Research Fellow at{" "}
+        <InlineLink link="https://www.anthropic.com/" label="Anthropic" />{" "}
+        working on AI safety and alignment and an undergraduate researcher at
+        the University of Waterloo exploring diffusion models. I was previously
+        at <InlineLink link="https://waabi.ai/" label="Waabi" /> where I worked
+        on generative video models for autonomous driving, and{" "}
+        <InlineLink link="https://groq.com" label="Groq" /> where I worked on
+        model inference.
       </Text>
       <Text fontSize="md" color="gray.400" lineHeight="1.75">
         My research interests lie in generative modeling, with a focus on video
