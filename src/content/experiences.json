@@ -1,10 +1,16 @@
 {
   "experiences": [
     {
+      "jobTitle": "Research Fellow",
+      "company": "Anthropic",
+      "description": "AI safety and alignment",
+      "time": "Aug 2026 - Present"
+    },
+    {
       "jobTitle": "Research Intern",
       "company": "Waabi",
       "description": "Diffusion fixers for neural reconstruction and video diffusion world models",
-      "time": "Jan 2026 - Present"
+      "time": "Jan 2026 - Aug 2026"
     },
     {
       "jobTitle": "Machine Learning Researcher",
