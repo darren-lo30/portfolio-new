@@ -1,6 +1,6 @@
-import { Flex, Text, Box, Stack, Link } from "@chakra-ui/react";
+import { Flex, Text, Stack, Link } from "@chakra-ui/react";
 import publicationsData from "../content/publications.json";
-import { ACCENT_COLOR } from "../config";
+import { COLORS, HOVER, TEXT, external } from "../config";
 import Section from "./Section";
 
 interface Publication {
@@ -15,13 +15,13 @@ interface Publication {
 const YOU = "Darren Lo";
 
 const AuthorList = ({ authors }: { authors: string[] }) => (
-  <Text fontSize="13px" color="gray.400" lineHeight="1.6">
+  <Text fontSize={TEXT.meta} color={COLORS.body} lineHeight="1.6">
     {authors.map((a, i) => (
       <span key={a}>
         {a === YOU ? (
-          <Box as="span" color="gray.200" fontWeight="semibold">
+          <Text as="span" color={COLORS.strong}>
             {a}
-          </Box>
+          </Text>
         ) : (
           a
         )}
@@ -31,42 +31,43 @@ const AuthorList = ({ authors }: { authors: string[] }) => (
   </Text>
 );
 
+// Avoid "ICLR 2026, 2026" when the venue already carries the year.
+const venueLabel = (pub: Publication) =>
+  pub.venue.includes(String(pub.year)) ? pub.venue : `${pub.venue}, ${pub.year}`;
+
 const PubEntry = ({ pub }: { pub: Publication }) => (
-  <Stack gap={1}>
+  <Stack gap={0.5}>
     {pub.paperUrl ? (
       <Link
         href={pub.paperUrl}
-        target="_blank"
-        fontSize="15px"
+        {...external}
+        fontSize={TEXT.body}
         fontWeight="semibold"
-        color="gray.100"
+        color={COLORS.strong}
         lineHeight="1.4"
         width="fit-content"
-        _hover={{ color: ACCENT_COLOR }}
+        {...HOVER}
       >
         {pub.title}
       </Link>
     ) : (
-      <Text fontSize="15px" fontWeight="semibold" color="gray.100" lineHeight="1.4">
+      <Text
+        fontSize={TEXT.body}
+        fontWeight="semibold"
+        color={COLORS.strong}
+        lineHeight="1.4"
+      >
         {pub.title}
       </Text>
     )}
 
     <AuthorList authors={pub.authors} />
 
-    <Flex gap={3} align="baseline" flexWrap="wrap">
-      <Text fontSize="13px" color="gray.500" fontStyle="italic">
-        {pub.venue}, {pub.year}
-      </Text>
+    <Flex gap={3} align="baseline" flexWrap="wrap" fontSize={TEXT.meta}>
+      <Text color={COLORS.muted}>{venueLabel(pub)}</Text>
       {pub.codeUrl && (
-        <Link
-          href={pub.codeUrl}
-          target="_blank"
-          fontSize="13px"
-          color={ACCENT_COLOR}
-          _hover={{ textDecoration: "underline" }}
-        >
-          code
+        <Link href={pub.codeUrl} {...external} color={COLORS.muted} {...HOVER}>
+          code ↗
         </Link>
       )}
     </Flex>
@@ -75,9 +76,9 @@ const PubEntry = ({ pub }: { pub: Publication }) => (
 
 const Publications = () => (
   <Section title="Publications">
-    <Stack gap={7}>
-      {publicationsData.publications.map((pub: Publication, i: number) => (
-        <PubEntry key={i} pub={pub} />
+    <Stack gap={6}>
+      {publicationsData.publications.map((pub: Publication) => (
+        <PubEntry key={pub.title} pub={pub} />
       ))}
     </Stack>
   </Section>

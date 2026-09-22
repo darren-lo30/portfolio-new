@@ -7,7 +7,8 @@
       name="description"
       content="Darren Lo's development portfolio website"
     />
-    <link rel="icon" href="./src/assets/logo-dark.png" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/logo.svg" />
+    <link rel="apple-touch-icon" href="./src/assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +23,11 @@
         margin: 0;
         padding: 0;
         font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      ::selection {
+        background-color: rgba(132, 223, 226, 0.3);
       }
     </style>
   </head>

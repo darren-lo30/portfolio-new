@@ -1,4 +1,4 @@
-import { ACCENT_COLOR } from "../config";
+import { COLORS, HOVER, TEXT, external } from "../config";
 import { Stack, Flex, Heading, Text, Link } from "@chakra-ui/react";
 import {
   FaEnvelope,
@@ -10,12 +10,13 @@ import {
 const InlineLink = (props: { link: string; label: string }) => (
   <Link
     href={props.link}
-    color="inherit"
-    target="_blank"
-    fontWeight="bold"
+    {...external}
+    color={COLORS.strong}
+    fontWeight="medium"
     textDecoration="underline"
-    textUnderlineOffset={2}
-    _hover={{ color: ACCENT_COLOR }}
+    textDecorationColor="gray.600"
+    textUnderlineOffset="3px"
+    {...HOVER}
   >
     {props.label}
   </Link>
@@ -45,18 +46,20 @@ const SOCIALS = [
 ];
 
 const Intro = () => (
-  <Stack gap={6}>
+  <Stack gap={8}>
     <Heading
       as="h1"
       fontSize={{ base: "3xl", md: "4xl" }}
+      fontWeight="semibold"
       lineHeight="1.1"
-      letterSpacing="-0.02em"
+      letterSpacing="-0.03em"
+      color={COLORS.strong}
     >
       Darren Lo
     </Heading>
 
-    <Stack gap={4}>
-      <Text fontSize="md" color="gray.400" lineHeight="1.75">
+    <Stack gap={4} fontSize={TEXT.body} color={COLORS.body} lineHeight="1.75">
+      <Text>
         Hi! I'm a 4th year computer science student at the{" "}
         <InlineLink
           label="University of Waterloo"
@@ -64,7 +67,7 @@ const Intro = () => (
         />
         .
       </Text>
-      <Text fontSize="md" color="gray.400" lineHeight="1.75">
+      <Text>
         I'm currently a Research Fellow at{" "}
         <InlineLink link="https://www.anthropic.com/" label="Anthropic" />{" "}
         working on AI safety and alignment and an undergraduate researcher at
@@ -74,10 +77,10 @@ const Intro = () => (
         <InlineLink link="https://groq.com" label="Groq" /> where I worked on
         model inference.
       </Text>
-      <Text fontSize="md" color="gray.400" lineHeight="1.75">
+      <Text>
         My research interests lie in generative modeling, with a focus on video
         diffusion world models. More recently, I've become interested in AI
-        alignment and safety as models grow increasingly capable.{" "}
+        alignment and safety as models grow increasingly capable.
       </Text>
     </Stack>
 
@@ -86,12 +89,13 @@ const Intro = () => (
         <Link
           key={label}
           href={href}
-          target="_blank"
+          {...(href.startsWith("mailto:") ? {} : external)}
           aria-label={label}
-          color="gray.400"
-          _hover={{ color: ACCENT_COLOR }}
+          title={label}
+          color={COLORS.muted}
+          {...HOVER}
         >
-          <Icon size="1.2em" />
+          <Icon size="1.15em" />
         </Link>
       ))}
     </Flex>

@@ -9,7 +9,7 @@ import {
 import Intro from "./components/Intro";
 import Publications from "./components/Publications";
 import Experience from "./components/Experience";
-import { ACCENT_COLOR } from "./config";
+import { COLORS, HOVER } from "./config";
 
 const NAV = [
   { label: "Publications", path: "/publications" },
@@ -25,32 +25,32 @@ function App() {
   }, [pathname]);
 
   return (
-    <Box minH="100vh" backgroundColor="#151515" color="white">
-      <Container maxW="40rem" px={{ base: 6, md: 8 }} py={{ base: 10, md: 14 }}>
-        <Stack gap={{ base: 12, md: 14 }}>
+    <Box minH="100vh" bg={COLORS.bg} color={COLORS.body}>
+      <Container
+        maxW="40rem"
+        px={{ base: 6, md: 8 }}
+        py={{ base: 10, md: 16 }}
+      >
+        <Stack gap={{ base: 14, md: 20 }}>
           <Flex as="header" justify="space-between" align="baseline" gap={4}>
-            {isHome ? (
-              <Box />
-            ) : (
-              <Link
-                asChild
-                fontSize="md"
-                fontWeight="semibold"
-                color="gray.100"
-                _hover={{ color: ACCENT_COLOR }}
-              >
-                <RouterLink to="/">Darren Lo</RouterLink>
-              </Link>
-            )}
-            <Flex gap={5}>
+            <Link
+              asChild
+              fontSize="sm"
+              fontWeight="semibold"
+              color={COLORS.strong}
+              visibility={isHome ? "hidden" : "visible"}
+              {...HOVER}
+            >
+              <RouterLink to="/">Darren Lo</RouterLink>
+            </Link>
+            <Flex as="nav" gap={6}>
               {NAV.map(({ label, path }) => (
                 <Link
                   key={path}
                   asChild
                   fontSize="sm"
-                  color={pathname === path ? "gray.100" : "gray.500"}
-                  fontWeight={pathname === path ? "semibold" : "normal"}
-                  _hover={{ color: ACCENT_COLOR }}
+                  color={pathname === path ? COLORS.strong : COLORS.muted}
+                  {...HOVER}
                 >
                   <RouterLink to={path}>{label}</RouterLink>
                 </Link>

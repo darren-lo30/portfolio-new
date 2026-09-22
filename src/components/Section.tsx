@@ -1,4 +1,5 @@
 import { Heading, Stack } from "@chakra-ui/react";
+import { COLORS } from "../config";
 
 const Section = ({
   title,
@@ -8,7 +9,13 @@ const Section = ({
   children: React.ReactNode;
 }) => (
   <Stack as="section" gap={6}>
-    <Heading as="h2" fontSize="xl" letterSpacing="-0.01em" color="gray.100">
+    <Heading
+      as="h1"
+      fontSize="2xl"
+      fontWeight="semibold"
+      letterSpacing="-0.02em"
+      color={COLORS.strong}
+    >
       {title}
     </Heading>
     {children}
