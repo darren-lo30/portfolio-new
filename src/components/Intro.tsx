@@ -71,16 +71,17 @@ const Intro = () => (
         I'm currently a Research Fellow at{" "}
         <InlineLink link="https://www.anthropic.com/" label="Anthropic" />{" "}
         working on AI safety and alignment and an undergraduate researcher at
-        the University of Waterloo exploring diffusion models. I was previously
-        at <InlineLink link="https://waabi.ai/" label="Waabi" /> where I worked
-        on generative video models for autonomous driving, and{" "}
+        the University of Waterloo. I was previously at{" "}
+        <InlineLink link="https://waabi.ai/" label="Waabi" /> where I worked on
+        generative video models for autonomous driving, and{" "}
         <InlineLink link="https://groq.com" label="Groq" /> where I worked on
         model inference.
       </Text>
       <Text>
-        My research interests lie in generative modeling, with a focus on video
-        diffusion world models. More recently, I've become interested in AI
-        alignment and safety as models grow increasingly capable.
+        My current research interests are in world models and physical AI. More
+        recently, I've become interested in AI alignment and safety as models
+        grow increasingly capable. I believe the intersection of these two
+        areas, physical AI and safety, is extremely important.
       </Text>
     </Stack>
 
